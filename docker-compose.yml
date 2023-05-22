@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  rails_base:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      EDITOR: nano
+      RAILS_ENV: development
+      RAILS_MASTER_KEY:
