@@ -2,6 +2,6 @@
 
 RSpec.describe Matestack::Renderer do
   it "has a version number" do
-    expect(Matestack::Renderer::VERSION).not_to be nil
+    expect(Matestack::Renderer::VERSION).not_to be_nil
   end
 end

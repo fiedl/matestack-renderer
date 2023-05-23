@@ -9,6 +9,8 @@ if File.exist?("/.dockerenv")
   # RSpec::Core::RakeTask.new(:spec)
 end
 
+require "bundler/gem_tasks"
+
 def shell(command)
   print "#{command}\n"
   system command
@@ -18,22 +20,26 @@ task :default => :tests
 
 task :tests => [:spec, :rubocop]
 
+desc "Build the docker containers to run development and test scripts"
 task :build do
   shell "docker compose build"
 end
 
-task :install => :bundle
+desc "Run 'bundle install' within docker in order to update Gemfile.lock"
 task :bundle do
   shell "docker compose run rails_base bundle install"
   shell "rake build"
 end
 
-require "bundler/gem_tasks"
+desc "[alias] Run 'bundle install' within docker in order to update Gemfile.lock"
+task :install => :bundle
 
+desc "Run rspec specs"
 task :spec do
   shell "docker compose run rails_base bundle exec rspec spec"
 end
 
+desc "Run rubocop code linter"
 task :rubocop do
   shell "docker compose run rails_base bundle exec rubocop"
 end

@@ -4,3 +4,17 @@ require:
 
 AllCops:
   NewCops: enable
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/HashSyntax:
+  Exclude:
+    - Rakefile
+
+Style/SymbolArray:
+  Exclude:
+    - Rakefile

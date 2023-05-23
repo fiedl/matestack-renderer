@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file configures the zeitwerk autoloader for out gem.
 #
 # As the gem name includes dashes, i.e. the gem entry file
