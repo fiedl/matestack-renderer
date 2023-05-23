@@ -1,5 +1,7 @@
 # Matestack::Renderer
 
+[![CI](https://github.com/fiedl/matestack-renderer/actions/workflows/ci.yml/badge.svg)](https://github.com/fiedl/matestack-renderer/actions/workflows/ci.yml)
+
 Renderer for matestack-ui-core
 
 TODO: Delete this and the text below, and describe your gem
