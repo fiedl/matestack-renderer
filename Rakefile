@@ -18,7 +18,7 @@ end
 
 task :default => :tests
 
-task :tests => [:spec, :rubocop]
+task :tests => [:rspec, :rubocop]
 
 desc "Build the docker containers to run development and test scripts"
 task :build do
@@ -35,9 +35,12 @@ desc "[alias] Run 'bundle install' within docker in order to update Gemfile.lock
 task :install => :bundle
 
 desc "Run rspec specs"
-task :spec do
+task :rspec do
   shell "docker compose run rails_base bundle exec rspec spec"
 end
+
+desc "[alias] Run rspec specs"
+task :spec => :rspec
 
 desc "Run rubocop code linter"
 task :rubocop do
