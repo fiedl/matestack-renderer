@@ -16,7 +16,9 @@ jobs:
       - name: Build
         run: docker compose build
       - name: Run specs
-        run: docker compose run rails_base rspec
+        run: docker compose run rails_base bundle exec rspec
+      - name: "Run rubocop"
+        run: docker compose run rails_base bundle exec rubocop
       - name: Stop containers
         if: always()
         run: docker compose down

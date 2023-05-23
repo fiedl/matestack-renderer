@@ -14,7 +14,9 @@ def shell(command)
   system command
 end
 
-task :default => :spec
+task :default => :tests
+
+task :tests => [:spec, :rubocop]
 
 task :build do
   shell "docker compose build"
@@ -29,6 +31,9 @@ end
 require "bundler/gem_tasks"
 
 task :spec do
-  shell "docker compose run rails_base rspec spec"
+  shell "docker compose run rails_base bundle exec rspec spec"
 end
 
+task :rubocop do
+  shell "docker compose run rails_base bundle exec rubocop"
+end
