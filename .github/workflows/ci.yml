@@ -1,0 +1,23 @@
+# Run the specs for matestack-renderer
+# within docker on github actions
+
+name: "CI"
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: docker compose build
+      - name: Run specs
+        run: docker compose run rails_base rspec
+      - name: Stop containers
+        if: always()
+        run: docker compose down
+
