@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "renderer/version"
+require_relative "./renderer/zeitwerk_autoloader"
 
 module Matestack
   module Renderer
