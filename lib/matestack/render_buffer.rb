@@ -66,8 +66,9 @@ class Matestack::RenderBuffer
     self.class.current_render_buffer = self
     result = yield
     self.class.current_render_buffer.add result if result.present? && self.class.current_render_buffer.empty?
-    self.class.current_render_buffer = last_render_buffer
     self.result
+  ensure
+    self.class.current_render_buffer = last_render_buffer
   end
 
   def self.add(string)

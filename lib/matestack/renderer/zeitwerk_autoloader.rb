@@ -16,6 +16,7 @@ lib_root_path = File.expand_path(File.join(__dir__, "../.."))
 loader = Zeitwerk::Loader.new
 loader.tag = "matestack-renderer"
 loader.push_dir(lib_root_path)
+loader.push_dir(File.join(lib_root_path, "matestack/concerns"))
 
 loader.inflector = Class.new(Zeitwerk::Inflector) do
   def camelize(basename, _abspath)
